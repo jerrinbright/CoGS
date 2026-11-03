@@ -326,10 +326,6 @@ footer{padding-block:48px 64px;color:var(--ink2);font-size:14px;text-align:cente
   <figure class="media" style="margin-top:22px;background:#fff"><img src="img/fig_neuman_qual.webp" alt="Qualitative comparison on NeuMan test images: GT, CoGS, HUGS, ExAvatar and 4DGS on four sequences, with red and blue boxes marking artifacts" loading="lazy" width="1671" height="803"></figure>
   <p class="cap"><b>NeuMan test images.</b> CoGS is closest to GT across four sequences. Red boxes mark geometry or foreground artifacts; blue boxes mark colour-intensity errors.</p>
 
-  <h3 class="sub">The object branch on its own</h3>
-  <figure class="media" style="background:#fff;max-width:760px"><img src="img/fig_object_qual.webp" alt="Object-level comparison: pairs of GT object crop and CoGS object rendering for the backpack, suitcase and tennis racket" loading="lazy" width="1400" height="812"></figure>
-  <p class="cap" style="max-width:760px"><b>Each pair: GT object and CoGS rendering.</b> Appearance is preserved when masks and trajectory support are reliable (backpack, suitcase); the thin tennis racket is the hardest case, which the paper's object-branch diagnostics also flag (alpha-IoU 0.90 on <i>Backpack</i> vs 0.23 on <i>Tennis</i>).</p>
-
   <details class="abl">
     <summary>Ablations from the paper</summary>
 <!--TABLE:ablations-->

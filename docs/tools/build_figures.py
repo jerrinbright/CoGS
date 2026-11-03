@@ -42,7 +42,6 @@ save(autocrop(pdf("hugs.pdf", 220)), "fig_overview.webp", 2000)
 # NeuMan qualitative comparison (Fig. simgs_qual), trimmed like the paper's \includegraphics trim
 save(autocrop(Image.open(FIG / "simgs_qual.png").convert("RGB")), "fig_neuman_qual.webp", 1800, q=86)
 # Object-level qualitative comparison
-save(autocrop(pdf("object_qual.svg.pdf", 200)), "fig_object_qual.webp", 1400, q=86)
 # Visibility-aware anchoring
 save(autocrop(Image.open(FIG / "visibility_anchor.png").convert("RGB")), "fig_visibility.webp", 1400)
 # Planar-primitive scene regulariser (letter page with the diagram in the middle)
