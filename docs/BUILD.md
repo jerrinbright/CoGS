@@ -7,7 +7,7 @@ Static site (GitHub Pages ready, served from `docs/`): `index.html` + `img/` (pa
 - Videos, branch renders and wipe-slider pairs: re-rendered from the paper's final HOSNeRF models,
   `~/jb_ws/SimGS/hosnerf_six_stage_rerun_20260520_final_16500_to_19000/hosnerf_hoi/<Seq>/hugs_mmlp/*object_final_polish_16500_to_19000/*/ckpt/{human,object,scene}_final.pth`
   (their saved evaluations reproduce the paper's HOSNeRF numbers), at the dataset's native resolution (`--image-scale 1.0`; training used 0.5).
-  `gt` and `full` come from the same dataset camera, so wipe pairs are pixel-aligned; `build_media.py` asserts zero shift and PSNR >= 22 dB.
+  `gt` and `full` come from the same dataset camera, so wipe pairs are pixel-aligned (`build_slider.py` asserts zero shift). Wipe pairs are selected frames: every 5th frame scored by PSNR/LPIPS with the person and object clearly visible, then checked by eye.
 - "Against baselines" stills: `~/jb_ws/SimGS/comparison_hosnerf/<Seq>/` (author strips GT | CoGS | HUGS | 4DGS; the label band is cropped off).
 - Nothing from `~/jb_ws/SimGS/exp/v2` is used.
 
@@ -19,7 +19,9 @@ python3 tools/build_tables.py                       # paper tables -> index.html
 cd ~/jb_ws/SimGS && for s in Backpack Tennis Suitcase Playground Dance Lounge; do
   PYTHONDONTWRITEBYTECODE=1 ~/miniforge3/envs/hugs/bin/python ~/jb_ws/cogs-site/docs/tools/render_cogs.py \
     --seq $s --out /tmp/cogs_render_hr --image-scale 1.0; done; cd -
-python3 tools/build_media.py /tmp/cogs_render_hr   # videos, posters, slider pairs, comparison stills, media.json
+python3 tools/build_media.py /tmp/cogs_render_hr   # videos, posters, comparison stills, media.json
+# wipe slider: hand-picked pairs at training resolution (render_cogs.py --image-scale 0.5 --frames 4,9,...)
+python3 tools/build_slider.py /tmp/cogs_render_lr
 python3 tools/make_artifact.py                      # build/artifact.html for the private claude.ai preview
 ```
 

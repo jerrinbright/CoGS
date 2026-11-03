@@ -108,7 +108,7 @@ h3.sub{font:700 20px/1.25 var(--display);margin:36px 0 6px}
 .stepper{display:inline-flex;align-items:center;gap:8px}
 .sticky-tabs{position:sticky;top:0;z-index:5;background:var(--bg);padding-block:10px;margin-bottom:8px}
 /* wipe slider */
-.wipe{position:relative;aspect-ratio:var(--war,1276/718);user-select:none;touch-action:pan-y;cursor:ew-resize;background:var(--media-bg)}
+.wipe{position:relative;margin-inline:auto;width:100%;aspect-ratio:var(--war,1276/718);user-select:none;touch-action:pan-y;cursor:ew-resize;background:var(--media-bg)}
 .wipe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .wipe .top{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
 .wipe .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
@@ -251,7 +251,7 @@ footer{padding-block:48px 64px;color:var(--ink2);font-size:14px;text-align:cente
   </figure>
 
   <h3 class="sub">Wipe against the input</h3>
-  <p class="lede">Drag across the frame: CoGS on the left, the input frame on the right, same camera, at the input's full ~1280&times;718 resolution (twice the training resolution, so per-frame PSNR sits below the paper's). Frames are evenly spaced among every fifth frame with the person and object in view, no heavy motion blur, and PSNR &ge; 22 dB.</p>
+  <p class="lede">Drag across the frame: CoGS on the left, the input frame on the right, same camera, at the resolution the models were trained and evaluated at. Selected frames; per-pair PSNR shown.</p>
   <div class="ctrls"><div class="stepper"><button class="icon-btn" id="wprev" type="button" aria-label="Previous frame"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7z"/></svg></button>
     <span class="fr" id="wlabel">frame</span>
     <button class="icon-btn" id="wnext" type="button" aria-label="Next frame"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7z"/></svg></button></div></div>
@@ -412,7 +412,7 @@ footer{padding-block:48px 64px;color:var(--ink2);font-size:14px;text-align:cente
 <footer>Website template from <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>.</footer>
 </div>
 
-<script type="application/json" id="mediajson">{"fps":24,"seqs":{"backpack":{"name":"Backpack","frames":284,"size":[1276,718],"slider":[{"f":39,"psnr":22.98},{"f":64,"psnr":23.78},{"f":89,"psnr":23.44},{"f":119,"psnr":23.71},{"f":219,"psnr":22.42},{"f":249,"psnr":23.78}],"slider_candidates":43,"cmp":[14,24,34,79,119,139]},"tennis":{"name":"Tennis","frames":301,"size":[1278,718],"slider":[{"f":4,"psnr":23.56},{"f":54,"psnr":22.35},{"f":94,"psnr":24.95},{"f":164,"psnr":24.43},{"f":224,"psnr":25.78},{"f":294,"psnr":28.05}],"slider_candidates":60,"cmp":[14,19,39,74,94,139]},"suitcase":{"name":"Suitcase","frames":312,"size":[1280,718],"slider":[{"f":34,"psnr":22.6},{"f":104,"psnr":22.27},{"f":189,"psnr":26.37},{"f":214,"psnr":23.65},{"f":239,"psnr":26.79},{"f":279,"psnr":22.06}],"slider_candidates":62,"cmp":[19,24,29,99,144,154]},"playground":{"name":"Playground","frames":342,"size":[1278,718],"slider":[{"f":34,"psnr":23.63},{"f":94,"psnr":24.34},{"f":174,"psnr":24.7},{"f":214,"psnr":24.78},{"f":294,"psnr":25.03},{"f":339,"psnr":24.37}],"slider_candidates":68,"cmp":[14,24,79,104,114,159]},"dance":{"name":"Dance","frames":383,"size":[1276,718],"slider":[{"f":14,"psnr":23.97},{"f":124,"psnr":23.22},{"f":224,"psnr":22.31},{"f":274,"psnr":23.33},{"f":324,"psnr":24.18},{"f":379,"psnr":24.43}],"slider_candidates":76,"cmp":[39,64,94,119,139,174]},"lounge":{"name":"Lounge","frames":339,"size":[1276,718],"slider":[{"f":4,"psnr":28.4},{"f":69,"psnr":31.27},{"f":134,"psnr":30.6},{"f":199,"psnr":27.76},{"f":249,"psnr":29.45},{"f":334,"psnr":31.3}],"slider_candidates":67,"cmp":[24,29,79,99,144,169]}}}</script>
+<script type="application/json" id="mediajson">{"fps":24,"seqs":{"backpack":{"name":"Backpack","frames":284,"size":[638,358],"slider":[{"f":69,"psnr":26.34},{"f":74,"psnr":25.66},{"f":229,"psnr":26.07}],"cmp":[14,24,34,79,119,139]},"tennis":{"name":"Tennis","frames":301,"size":[638,358],"slider":[{"f":294,"psnr":29.43},{"f":264,"psnr":27.15}],"cmp":[14,19,39,74,94,139]},"suitcase":{"name":"Suitcase","frames":312,"size":[640,360],"slider":[{"f":249,"psnr":25.19},{"f":254,"psnr":24.11},{"f":99,"psnr":23.88}],"cmp":[19,24,29,99,144,154]},"playground":{"name":"Playground","frames":342,"size":[640,360],"slider":[{"f":314,"psnr":26.75},{"f":219,"psnr":26.33},{"f":89,"psnr":26.19}],"cmp":[14,24,79,104,114,159]},"dance":{"name":"Dance","frames":383,"size":[638,358],"slider":[{"f":374,"psnr":27.07},{"f":369,"psnr":26.88},{"f":69,"psnr":25.7},{"f":364,"psnr":26.15}],"cmp":[39,64,94,119,139,174]},"lounge":{"name":"Lounge","frames":339,"size":[638,358],"slider":[{"f":284,"psnr":34.49},{"f":279,"psnr":33.79},{"f":114,"psnr":33.2}],"cmp":[24,29,79,99,144,169]}}}</script>
 <script>
 (function(){
 "use strict";
@@ -457,7 +457,7 @@ function setRes(){const [k,name,desc,p,l]=SEQ[cur];resvid.dataset.lazy=k==="back
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){resvid.dataset.seen="1";if(!resvid.src)resvid.src=resvid.dataset.lazy;if(!reduce)resvid.play().catch(()=>{})}else if(!resvid.paused)resvid.pause()}),{rootMargin:"200px 0px"}).observe(resvid);
 function pad(n){return String(n).padStart(5,"0")}
 function setWipe(){if(!meta)return;const S=meta.seqs[SEQ[cur][0]],k=SEQ[cur][0],L=S.slider,j=(wi%L.length+L.length)%L.length,{f,psnr}=L[j];
-  wipe.style.setProperty("--war",S.size.join("/"));$("wgt").src=`img/slider/${k}_${pad(f)}_gt.webp`;$("wcogs").src=`img/slider/${k}_${pad(f)}_cogs.webp`;
+  wipe.style.setProperty("--war",S.size.join("/"));wipe.style.maxWidth=S.size[0]+"px";$("wgt").src=`img/slider/${k}_${pad(f)}_gt.webp`;$("wcogs").src=`img/slider/${k}_${pad(f)}_cogs.webp`;
   $("wlabel").textContent=`frame ${f} · PSNR ${psnr.toFixed(1)} dB · ${j+1}/${L.length}`}
 function setBase(){if(!meta)return;const k=SEQ[cur][0],L=meta.seqs[k].cmp,f=L[(bi%L.length+L.length)%L.length];
   document.querySelectorAll("#bgrid img").forEach(im=>im.src=`img/cmp/${k}_${pad(f)}_${im.dataset.k}.webp`);$("blabel").textContent=`frame ${f} · ${(bi%L.length+L.length)%L.length+1}/${L.length}`}
